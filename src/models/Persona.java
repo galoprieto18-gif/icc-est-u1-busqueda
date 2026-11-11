@@ -1,6 +1,6 @@
 package models;
 
-public class Persona {
+public class Persona implements Comparable<Persona> {
     
     private String name;
     private int age;
@@ -47,5 +47,23 @@ public class Persona {
     @Override
     public String toString() {
         return "Persona [" + name + ", " + age + ", " + gender + "]";
+    }
+
+
+    @Override
+    public int compareTo(Persona arg0) {
+       
+        
+     int c = this.name.compareTo(arg0.getName());
+     if (c!=0)
+        return c;
+
+     int c2 = Integer.compare(this.age, arg0.getAge());
+        if (c2!=0)
+            return c2;
+
+       return this.gender.compareTo(arg0.getGender());
+
+
     }
 }
